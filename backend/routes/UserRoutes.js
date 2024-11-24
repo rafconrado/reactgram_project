@@ -18,7 +18,7 @@ const {
   userUpdateValidation,
 } = require("../middlewares/userValidation");
 const authGuard = require("../middlewares/authGuard");
-const { imageUpload } = require("../middlewares/imageUpload");
+const imageUpload = require("../middlewares/imageUpload");
 
 // Routes
 router.post("/register", userCreateValidation(), validate, register);
@@ -29,7 +29,6 @@ router.put(
   authGuard,
   userUpdateValidation(),
   validate,
-  imageUpload.single("profileImage"),
   update
 );
 router.get("/:id", getUserById);
